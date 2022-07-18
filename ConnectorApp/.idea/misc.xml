@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable-v24/oval_background.xml" value="0.177" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable-v24/view_border_bg.xml" value="0.185" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/button_view.xml" value="0.1765" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/home_view_border.xml" value="0.1765" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_arrow_back.xml" value="0.185" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_arrow_drop_down_black.xml" value="0.1665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_baseline_home.xml" value="0.1795" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_down.xml" value="0.1665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_face.xml" value="0.159" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_logout.xml" value="0.185" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/ic_person.xml" value="0.1715" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/login_view_corner.xml" value="0.1765" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/notification_view.xml" value="0.123" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/spinner_background.xml" value="0.1665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/view_border.xml" value="0.1665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/drawable/view_rounded_corner.xml" value="0.123" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_address.xml" value="0.2" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_basic.xml" value="0.16799999999999998" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_blutooth.xml" value="0.2056434373663959" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_dashboard.xml" value="0.21120136810602821" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_document.xml" value="0.20863616930312098" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_main.xml" value="0.24666666666666667" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_main_signup.xml" value="0.187890625" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_other.xml" value="0.20778110303548525" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_review.xml" value="0.2" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_splash.xml" value="0.4" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/activity_task_login.xml" value="0.20863616930312098" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/app_bar_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/app_toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/bluetooth_discovery.xml" value="0.1" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/bluetooth_item_devices.xml" value="0.2056434373663959" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/button_layout.xml" value="0.187890625" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/content_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/custom_choose_option_alert_dialog.xml" value="0.20863616930312098" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/custom_logout_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/dialog_loading.xml" value="0.20863616930312098" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/fragment_gallery.xml" value="0.20863616930312098" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/home_fragment.xml" value="0.25052083333333336" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/layout_toolbar.xml" value="0.4" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/menu_layout.xml" value="0.20778110303548525" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/network_security_confi.xml" value="0.1" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/network_security_config.xml" value="0.1" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/layout/spinner_list.xml" value="0.25052083333333336" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/menu/activity_main_drawer.xml" value="0.11197916666666667" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/menu/dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/xml/network_security_config.xml" value="0.1013253527148354" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/xml/provider_path.xml" value="0.20863616930312098" />
+        <entry key="..\:/Komal/LoginTask/app/src/main/res/xml/provider_paths.xml" value="0.20863616930312098" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

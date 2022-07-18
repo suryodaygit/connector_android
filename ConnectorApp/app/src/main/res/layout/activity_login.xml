@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f68121">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_view_corner">
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/_120sdp"
+        android:src="@drawable/bank_logo" />
+</RelativeLayout>
+  <!--  <androidx.core.widget.NestedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/_10sdp">-->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:textColor="@color/subTitle"
+        android:textSize="@dimen/_26sdp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:paddingTop="@dimen/_20sdp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_login_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_below="@id/tv_title">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:buttonTint="@color/white"
+                android:paddingStart="@dimen/_12sdp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:buttonTint="@color/white"
+                android:paddingStart="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_email_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rg_login_type"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@null"
+            android:hint="Email/mobile"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:paddingStart="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+        <ImageView
+            android:id="@+id/iv_verify_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/account_verification"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_below="@id/rg_login_type"
+            android:visibility="gone"
+            android:layout_marginStart="-50dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border_gray"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_below="@+id/et_email_mobile"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_12sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true">
+    <TextView
+        android:id="@+id/tv_new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="New user? Register"
+        android:textColor="@color/marqueeText"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <View
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/subTitle"
+        android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_name"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:singleLine="true"
+                android:paddingStart="@dimen/_4sdp"
+                android:maxLength="20" />
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="************"
+                android:textColorHint="@color/white"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingTop="@dimen/_12sdp"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:inputType="textPassword"
+                android:textSize="@dimen/_14sdp"/>
+            <include
+                android:id="@+id/button"
+                layout="@layout/button_layout"/>
+        </LinearLayout>
+    </RelativeLayout>
+<!--
+    </androidx.core.widget.NestedScrollView>
+-->
+</LinearLayout>
+</layout>

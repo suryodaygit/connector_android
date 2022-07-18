@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/app_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12sdp"
+            android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Documents Upload : "
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_document"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Customer Photo"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:visibility="gone"
+                            android:text="Photo"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_upload_customer_photo"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_cancelled_cheque"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Cancelled Cheque"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_cancelled_cheque_photo"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_pan_card"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="PAN Card"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_pan_card_photo"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_12sdp"
+                android:text="Self-attested copies of KYC Documents duly verified by bank officials"
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_self_customer_photo"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Customer"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:text="Photo"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_customer_photo"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_address_proof"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Address"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:text="Proof"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_address_proof_photo"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_identity_proof"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Identity Proof"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_identity_proof"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_proprietor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_12sdp"
+                android:text="Proprietorship "
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_proprietorship_declaration"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Proprietorship"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:text="Declaration"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_proprietorship_document"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_gstin_no"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="GSTIN No"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_gstin_no"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_proprientor_address_proof"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Address"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:text="Proof"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_address_proof"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_partnership"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_12sdp"
+                android:text="Partnership / LLP"
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_partnership_gstin_no"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="GSTIN No"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_partnership_gstin_no"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_partnership_pan_no"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Partnership"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:text="Pan"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_partnership_pan"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_partnership_address_proof"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Address"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:text="Proof"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_partnership_address_proof"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_partnership_deed"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Partnership"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:text="deed"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_upload_partnership_deed"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_signature"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Signature"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:id="@+id/iv_upload_partnership_signature"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_private_ltd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:text="Private Ltd. / Ltd. Company"
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_private_gstin_no"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="GSTIN No"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_upload_private_gstin_no"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_private_pan_no"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Comapany"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:text="Pan"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_upload_private_pan"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_private_address_proof"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Address"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:text="Proof"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_upload_private_address_proof"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_certificate_incorparation"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Incorporation"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:text="certificate"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+                        <ImageView
+                            android:id="@+id/iv_upload_incorporation_certificate"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_private_signature"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:scaleType="fitXY"
+                            android:src="@color/gray"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:text="Signature"
+                            android:textColor="@color/app_color"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:id="@+id/iv_upload_private_signature"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/upload_document"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/btn_submit"
+                layout="@layout/button_layout" />
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
