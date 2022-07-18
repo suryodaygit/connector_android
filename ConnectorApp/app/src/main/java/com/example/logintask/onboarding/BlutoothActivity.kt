@@ -14,7 +14,7 @@ import com.example.logintask.lib.base.BaseActivity
 import com.example.logintask.lib.utils.showToast
 import java.io.*
 import java.util.*
-//comment
+//comment   ok
 
 class BlutoothActivity : BaseActivity() {
 
