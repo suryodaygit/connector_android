@@ -17,6 +17,7 @@ import java.util.*
 //comment   ok
 
 //test 1
+//test 2
 
 
 class BlutoothActivity : BaseActivity() {
