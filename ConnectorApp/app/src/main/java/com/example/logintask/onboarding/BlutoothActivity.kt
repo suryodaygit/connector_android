@@ -16,6 +16,10 @@ import java.io.*
 import java.util.*
 //comment   ok1
 
+//test 1
+//test 2
+
+
 class BlutoothActivity : BaseActivity() {
 
     var bAdapter: BluetoothAdapter? = null
