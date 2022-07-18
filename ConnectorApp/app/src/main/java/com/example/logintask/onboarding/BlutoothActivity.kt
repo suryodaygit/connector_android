@@ -15,6 +15,7 @@ import com.example.logintask.lib.utils.showToast
 import java.io.*
 import java.util.*
 //comment   ok
+//test 1
 
 class BlutoothActivity : BaseActivity() {
 
