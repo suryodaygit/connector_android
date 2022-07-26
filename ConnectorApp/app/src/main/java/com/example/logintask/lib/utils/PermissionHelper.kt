@@ -77,7 +77,6 @@ object PermissionHelper {
     /**
      * Function to show the "enable GPS" Dialog box
      */
-/*
     fun showGPSNotEnabledDialog(context: Context) {
         AlertDialog.Builder(context)
             .setTitle(context.getString(R.string.enable_gps))
@@ -88,6 +87,5 @@ object PermissionHelper {
             }
             .show()
     }
-*/
 
 }

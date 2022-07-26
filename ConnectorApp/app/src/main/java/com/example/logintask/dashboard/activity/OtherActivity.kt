@@ -28,16 +28,12 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
     val mcurrentTime = Calendar.getInstance()
     val hour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
     val minute = mcurrentTime.get(Calendar.MINUTE)
-    private val occupication = arrayOf ("Real Estate Consultant - Residential","Real Estate Consultant - Commercial",
-    "Real Estate Consultant - Residential & Consultant","Real Estate Developer","Chartered Accountant",
-    "Tax Consultant","Personal Finance Advisor","Pvt Ltd Company","Public Ltd Company","Cooperative Bank",
-     "Cooperative Housing Society","Insurance Advisor - ICICI Prudential","Insurance Advisor - Others","Others")
-    private val language = arrayOf ("English","Hindi","Marathi")
-    private val relationWithStaff = arrayOf ("Father","Mother","Friend")
+    private var bsm=""
+    private val relationWithStaff = arrayOf ("Spouse","Father","Mother","Son","Daughter","Father-in-law","Mother-in-law",
+            "Brother","Sister","Friend","Relative")
     private var bankAccount=""
     private var relationWithBank=""
     private lateinit var selectedRadioButton: RadioButton
-    private var presentedOccupication = ""
     private var callingDate = ""
     private var callingTime = ""
     private var preferredLang = ""
@@ -50,6 +46,7 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
     private var ssfbStaff = ""
     private var ssfbStaffName = ""
     private var relationshipStaff = ""
+    private var bsmId=""
     override fun getLayout() = R.layout.activity_other
 
     override fun init() {
@@ -64,16 +61,6 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
     private fun setOnclickListner(){
         binding.toolbar.ivBack.setOnClickListener {
             startActivity(Intent(this, DashboardActivity::class.java))
-        }
-
-        binding.llCallingDate.setOnClickListener {
-            isMeeting = false
-            openDatepicker()
-        }
-
-        binding.llCallingTime.setOnClickListener {
-            isMeeting = false
-           openTimePicker()
         }
 
         binding.llMeetingDate.setOnClickListener {
@@ -121,19 +108,23 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
             validation(it)
         }
 
+        binding.rgBsm.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->
+            val selectedbuttonId =radioGroup.checkedRadioButtonId
+            if(selectedbuttonId !=-1){
+                selectedRadioButton = radioGroup.findViewById(selectedbuttonId)
+                bsm = selectedRadioButton.text.toString()
+                setDataInPreference(this,Constant.BSM_CHECK,bsm)
+            }
+            if(bsm=="Yes"){
+                binding.llBsmNo.visibility = View.VISIBLE
+            }else{
+                binding.llBsmNo.visibility = View.GONE
+            }
+        })
+
     }
 
     private fun setSpinner(){
-        val occupicationAdapter = ArrayAdapter(this, R.layout.spinner_list, occupication)
-        binding.spPresentOccupation.adapter = occupicationAdapter
-        binding.spPresentOccupation.onItemSelectedListener = this
-        occupicationAdapter.notifyDataSetChanged()
-
-        val languageAdapter = ArrayAdapter(this, R.layout.spinner_list, language)
-        binding.spPrefferedLang.adapter = languageAdapter
-        binding.spPrefferedLang.onItemSelectedListener = this
-        languageAdapter.notifyDataSetChanged()
-
         val relationAdapter = ArrayAdapter(this, R.layout.spinner_list, relationWithStaff)
         binding.spRelationshipWithStaff.adapter = relationAdapter
         binding.spRelationshipWithStaff.onItemSelectedListener = this
@@ -152,7 +143,6 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
                 if (isMeeting){
                     binding.tvMeetingTime.text =  "$time $am_pm"
                 }else {
-                    binding.tvTime.text = "$time $am_pm"
                 }
             }, hour, minute, false)
 
@@ -168,7 +158,6 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
                 if(isMeeting){
                     binding.tvMeetingDate.text = "$dayOfMonth/$selectedMonth/$year"
                 }else {
-                    binding.tvDate.text = "$dayOfMonth/$selectedMonth/$year"
                 }
             },
             year,
@@ -180,15 +169,14 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
     }
 
     private fun getData(){
-        callingTime = binding.tvTime.text.toString()
-        callingDate = binding.tvDate.text.toString()
         bankCustId = binding.etBankCustId.text.toString()
         meetingDate = binding.tvMeetingDate.text.toString()
         meetingTime = binding.tvMeetingTime.text.toString()
         ssfbStaffName = binding.etStaffName.text.toString()
+        bsmId = binding.etBsmNumber.text.toString()
+
 
         // save data in preference
-        setDataInPreference(this, Constant.PRESENT_OCCUPATION,presentedOccupication)
         setDataInPreference(this,Constant.CALLING_TIME,callingTime)
         setDataInPreference(this,Constant.CALLING_DATE,callingDate)
         setDataInPreference(this,Constant.PREFERRED_LANGUAGE,preferredLang)
@@ -199,30 +187,21 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
         setDataInPreference(this,Constant.RELATIONSHIP_WITH_STAFF,relationshipStaff)
         setDataInPreference(this,Constant.ACCOUNT_SURYODAY_BANK_CHECK,suryodayAccountCheck)
         setDataInPreference(this,Constant.SSFB_STAFF_CHECK,ssfbStaffCheck)
+        setDataInPreference(this,Constant.BSM_ID,bsmId)
+
     }
 
     private fun validation(view:View){
         getData()
-        if(presentedOccupication ==""){
-            showSnackbar(view,"Please select occupation")
-        }else if(callingDate==""){
-            showSnackbar(view,"Please select preferred calling date")
-        }else if(callingTime == ""){
-            showSnackbar(view,"Please select preferred calling time")
-        }else if(preferredLang == ""){
-            showSnackbar(view,"Please enter preferred language")
-        }else if(suryodayAccountCheck == "Yes" && bankCustId == "" ){
+        if(suryodayAccountCheck == "Yes" && bankCustId == "" ){
             showSnackbar(view,"Please enter suryoday bank customer ID")
-        }else if(meetingDate == ""){
-            showSnackbar(view,"Please enter schedule meeting date")
-        }else if(meetingTime == ""){
-            showSnackbar(view,"Please enter schedule meeting time")
         }else if(ssfbStaffCheck == "Yes" && ssfbStaffName == "") {
             showSnackbar(view, "Please enter staff name")
-        } else if (ssfbStaffCheck == "Yes" && relationshipStaff == "") {
+        }else if (ssfbStaffCheck == "Yes" && relationshipStaff == "") {
             showSnackbar(view, "Please enter relationship with staff")
-         }
-        else{
+        }else if(bsm=="Yes" && bsmId == ""){
+            showSnackbar(view,"Please enter bsm registration Id")
+        }else{
             HomeFragment.COMPLETED_PAGE_STATUS = "Other"
             finish()
         }
@@ -234,12 +213,7 @@ class OtherActivity : BaseActivity(), AdapterView.OnItemSelectedListener{
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        presentedOccupication = binding.spPresentOccupation.selectedItem.toString()
-        preferredLang = binding.spPrefferedLang.selectedItem.toString()
         relationshipStaff = binding.spRelationshipWithStaff.selectedItem.toString()
-        if(presentedOccupication == "Others"){
-            binding.etOccupation.visibility = View.VISIBLE
-        }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

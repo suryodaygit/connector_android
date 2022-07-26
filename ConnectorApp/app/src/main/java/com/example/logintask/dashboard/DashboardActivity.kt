@@ -1,23 +1,28 @@
 package com.example.logintask.dashboard
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.healthqrapp.lib.utils.Constant
 import com.example.logintask.R
 import com.example.logintask.dashboard.fragment.home.HomeFragment
 import com.example.logintask.databinding.ActivityDashboardBinding
+import com.example.logintask.lib.utils.getPreferenceData
 import com.example.logintask.lib.utils.logoutDialog
+import com.example.logintask.lib.utils.showToast
+import com.example.logintask.onboarding.login.LoginActivity
 import com.google.android.material.navigation.NavigationView
 
 class DashboardActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityDashboardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val address = getPreferenceData(this, Constant.LOCATION, "")
+        showToast(this, address)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val menuBinding = binding.menu
@@ -28,7 +33,8 @@ class DashboardActivity : AppCompatActivity() {
         drawerLayout.drawerElevation = 0F
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.nav_host_fragment_content_dashboard, HomeFragment()).commit()
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_dashboard, HomeFragment())
+            .commit()
 
         toolbarBinding.ivDrawer.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
@@ -42,14 +48,15 @@ class DashboardActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_in_animation, R.anim.slide_out_animation)
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 drawerLayout.closeDrawer(GravityCompat.START)
-            }else {
+            } else {
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START)
                 }
             }
             val fragmentManager = supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-           fragmentTransaction.replace(R.id.nav_host_fragment_content_dashboard, HomeFragment()).commit()
+            fragmentTransaction.replace(R.id.nav_host_fragment_content_dashboard, HomeFragment())
+                .commit()
         }
 
         menuBinding.llLogout.setOnClickListener {
@@ -89,6 +96,11 @@ class DashboardActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 
 }

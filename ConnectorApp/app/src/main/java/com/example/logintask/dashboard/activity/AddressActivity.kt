@@ -48,7 +48,7 @@ class AddressActivity : BaseActivity() {
             validation(it)
         }
 
-        binding.etPincode.addTextChangedListener(object : TextWatcher {
+      /*  binding.etPincode.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
 
@@ -85,7 +85,35 @@ class AddressActivity : BaseActivity() {
             ) {
                 binding.llOfficeView.visibility = View.VISIBLE
             }
-        })
+        })*/
+        var isCheck = false
+        binding.cbAddress.setOnClickListener {
+             isCheck = binding.cbAddress.isChecked
+            if (isCheck) {
+                residentialPinCode = binding.etPincode.text.toString()
+                residentialCity = binding.etCity.text.toString()
+                residentialState = binding.etState.text.toString()
+                residentialAddress = binding.etAddress.text.toString()
+                officePinCode = binding.etOfficePincode.text.toString()
+                officeCity = binding.etOfficeCity.text.toString()
+                officeState = binding.etOfficeState.text.toString()
+                officeAddress = binding.etOfficeAdress.text.toString()
+                residentialDistrict = binding.etDistrict.text.toString()
+                officeDistrict = binding.etOfficeDistrict.text.toString()
+
+                binding.etOfficeAdress.setText(residentialAddress)
+                binding.etOfficePincode.setText(residentialPinCode)
+                binding.etOfficeCity.setText(residentialCity)
+                binding.etOfficeDistrict.setText(residentialDistrict)
+                binding.etOfficeState.setText(residentialState)
+            }else{
+                binding.etOfficeAdress.setText("")
+                binding.etOfficePincode.setText("")
+                binding.etOfficeCity.setText("")
+                binding.etOfficeDistrict.setText("")
+                binding.etOfficeState.setText("")
+            }
+        }
 
     }
     override fun setObserver() {

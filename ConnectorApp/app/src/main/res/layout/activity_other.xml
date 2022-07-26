@@ -20,154 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:orientation="vertical"
-        android:background="@drawable/view_border_bg"
-        android:padding="@dimen/_10sdp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Present Occupation : "
-            android:textColor="@color/app_color"
-            android:textSize="@dimen/_14sdp" />
-                <Spinner
-                    android:id="@+id/sp_present_occupation"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:background="@drawable/spinner_background"
-                    android:dropDownWidth="fill_parent" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_1sdp"
-            android:background="@color/gray" />
-
-    </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_other_occupation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:orientation="vertical"
-            android:background="@drawable/view_border_bg"
-            android:visibility="gone"
-            android:padding="@dimen/_10sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Occupation : "
-                android:textColor="@color/app_color"
-                android:textSize="@dimen/_14sdp" />
-
-            <EditText
-                android:id="@+id/et_occupation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:enabled="true"
-                android:maxLength="10"
-                android:hint="Real Estate Consultant-Residential"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:orientation="vertical"
-            android:background="@drawable/view_border_bg"
-            android:padding="@dimen/_10sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Preferred time for Calling : "
-                android:textColor="@color/app_color"
-                android:textSize="@dimen/_14sdp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:id="@+id/ll_calling_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-                <TextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:hint="09/12/2022"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="@color/black"/>
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_1sdp"
-
-                        android:background="@color/gray"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_calling_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_weight="1">
-                <TextView
-                    android:id="@+id/tv_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="9:7 AM"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="@color/black"
-                    android:layout_gravity="center_horizontal"/>
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/gray"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:orientation="vertical"
-            android:background="@drawable/view_border_bg"
-            android:padding="@dimen/_10sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Preferred language : "
-                android:textColor="@color/app_color"
-                android:textSize="@dimen/_14sdp" />
-
-            <Spinner
-                android:id="@+id/sp_preffered_lang"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:background="@drawable/spinner_background"
-                android:dropDownWidth="fill_parent" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gray" />
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -234,6 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:orientation="vertical"
+            android:visibility="gone"
             android:background="@drawable/view_border_bg"
             android:padding="@dimen/_10sdp">
 
@@ -353,8 +207,8 @@
                     android:layout_marginTop="@dimen/_6sdp"
                     android:enabled="true"
                     android:maxLength="10"
-                    android:hint="suryoday"
-                    android:inputType="text"
+                    android:hint="SURYODAY"
+                    android:inputType="textCapCharacters"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
@@ -385,6 +239,73 @@
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/gray" />
             </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/view_border_bg"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Do you know your Sales Manager Id or Counselor Id  : "
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/_14sdp" />
+
+            <RadioGroup
+                android:id="@+id/rg_bsm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textSize="@dimen/_10sdp" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:text="No"
+                    android:textSize="@dimen/_10sdp"/>
+            </RadioGroup>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_bsm_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/view_border_bg"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Counselor Code or Sales Manager Id : "
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/_14sdp" />
+
+            <EditText
+                android:id="@+id/et_bsm_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:enabled="true"
+                android:maxLength="6"
+                android:inputType="number"
+                android:hint="2422"
+                android:editable="false"
+                android:clickable="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
         </LinearLayout>
         <include
             android:id="@+id/btn_submit"

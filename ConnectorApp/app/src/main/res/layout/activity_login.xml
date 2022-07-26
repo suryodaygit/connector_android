@@ -27,18 +27,18 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:textColor="@color/subTitle"
-        android:textSize="@dimen/_26sdp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:paddingTop="@dimen/_20sdp"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:paddingTop="@dimen/_20sdp"
+            android:text="LOGIN"
+            android:textColor="@color/subTitle"
+            android:textSize="@dimen/_26sdp"
+            android:textStyle="bold" />
 
         <RadioGroup
             android:id="@+id/rg_login_type"

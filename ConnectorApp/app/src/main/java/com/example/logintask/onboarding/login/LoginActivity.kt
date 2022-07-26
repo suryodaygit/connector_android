@@ -12,11 +12,15 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
+import com.example.healthqrapp.lib.utils.Constant
 import com.example.logintask.R
 import com.example.logintask.dashboard.DashboardActivity
+import com.example.logintask.dashboard.fragment.home.HomeFragment
 import com.example.logintask.databinding.ActivityLoginBinding
 import com.example.logintask.lib.base.BaseActivity
+import com.example.logintask.lib.utils.getPreferenceData
 import com.example.logintask.lib.utils.showSnackbar
+import com.example.logintask.lib.utils.showToast
 import com.example.logintask.onboarding.signup.SignupActivity
 
 class LoginActivity : BaseActivity() {
@@ -30,21 +34,8 @@ class LoginActivity : BaseActivity() {
     override fun init() {
         binding = DataBindingUtil.setContentView(this, getLayout())
         overridePendingTransition(R.anim.slide_in_animation, R.anim.slide_out_animation)
-
-        /*  binding.button.btn.text = "LOGIN"
-        binding.button.btn.setOnClickListener {
-             if(binding.etEmail.text.toString()=="" || !checkEmail(binding.etEmail.text.toString())) {
-                 showSnackbar(it,"Please enter valid email id")
-             }else if(binding.etPassword.text.toString() =="" || binding.etPassword.text.length < 6){
-                 showSnackbar(it,"Please enter password")
-             }else{
-                 showSnackbar(it,"Successfull Login.....")
-                 startActivity(Intent(this,DashboardActivity::class.java))
-             }
-         }
- */
+        HomeFragment.COMPLETED_PAGE_STATUS = " "
         setOnClickListener()
-
     }
 
     private fun setOnClickListener() {

@@ -172,6 +172,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                     <ImageView
@@ -281,6 +282,82 @@
                         android:layout_gravity="center"/>
                     <ImageView
                         android:id="@+id/iv_upload_identity_proof"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_aadhar_front"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Aadhar Front"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/iv_upload_aadhar_front"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/upload_document"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_aadhar_back"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:text="Aadhar Back"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/iv_upload_aadhar_back"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_5sdp"

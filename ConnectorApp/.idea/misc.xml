@@ -54,6 +54,19 @@
         <entry key="..\:/Komal/LoginTask/app/src/main/res/xml/network_security_config.xml" value="0.1013253527148354" />
         <entry key="..\:/Komal/LoginTask/app/src/main/res/xml/provider_path.xml" value="0.20863616930312098" />
         <entry key="..\:/Komal/LoginTask/app/src/main/res/xml/provider_paths.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/drawable/ic_camera.xml" value="0.1745" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_address.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_basic.xml" value="0.19285714285714287" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_business_details.xml" value="0.190625" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_dashboard.xml" value="0.20599409033347404" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_document.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_login.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_main_signup.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_other.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/activity_review.xml" value="0.2" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/custom_logout_dialog.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/custom_success_dialog.xml" value="0.20863616930312098" />
+        <entry key="..\:/coonector/ConnectorApp/app/src/main/res/layout/fragment_home.xml" value="0.20863616930312098" />
       </map>
     </option>
   </component>

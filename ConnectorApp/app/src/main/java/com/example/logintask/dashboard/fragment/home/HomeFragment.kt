@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import com.example.healthqrapp.lib.utils.Constant
 import com.example.logintask.dashboard.activity.*
 import com.example.logintask.databinding.FragmentHomeBinding
+import com.example.logintask.lib.utils.getPreferenceData
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +33,11 @@ class HomeFragment : Fragment() {
 
     private fun setOnClickListener(){
         homeBinding?.btnReview?.btn?.text = "Review"
+        homeBinding?.llBasicDetails?.visibility = View.VISIBLE
+
+        val userName= activity?.let { getPreferenceData(it,Constant.USER_NAME,"") }
+        homeBinding?.tvUserName?.text = "Welcome $userName"
+        //homeBinding?.llLead?.visibility = View.VISIBLE
 
         homeBinding?.llBasic?.setOnClickListener {
             startActivity(Intent(activity, BasicActivity::class.java))
@@ -47,13 +55,16 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, DocumentActivity::class.java))
         }
 
-      /*  homeBinding?.llReview?.setOnClickListener {
+        homeBinding?.llBusinessDetail?.setOnClickListener {
+            startActivity(Intent(activity, BusinessActivity::class.java))
+        }
+
+        homeBinding?.llReview?.setOnClickListener {
             startActivity(Intent(activity, ReviewActivity::class.java))
         }
-        */
-        homeBinding?.btnReview?.btn?.setOnClickListener {
-            startActivity(Intent(activity, ReviewActivity::class.java))
-        }
+
+        val imageUrl = activity?.let { getPreferenceData(it, Constant.PROFILE_IMAGE,"").toUri() }
+        homeBinding?.profileImage?.setImageURI(imageUrl)
     }
 
     override fun onDestroyView() {
@@ -70,11 +81,17 @@ class HomeFragment : Fragment() {
             "Address" -> {
                 homeBinding?.ivAddressCompleteStatus?.visibility = View.VISIBLE
             }
+            "Business" -> {
+                homeBinding?.ivBusinessCompleteStatus?.visibility = View.VISIBLE
+            }
             "Other" -> {
                 homeBinding?.ivOtherCompleteStatus?.visibility = View.VISIBLE
             }
             "Document"-> {
                 homeBinding?.ivDocumentCompleteStatus?.visibility = View.VISIBLE
+            }
+            "Review" ->{
+                homeBinding?.tvStatus?.text = "Status : Under Review"
             }
         }
     }

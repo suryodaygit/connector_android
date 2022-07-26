@@ -44,12 +44,14 @@
                     android:layout_marginTop="@dimen/_6sdp"
                     android:enabled="true"
                     android:maxLength="20"
-                    android:hint="Individual"
-                    android:inputType="text"
+                    android:hint="ENTITY"
+                    android:inputType="textCapCharacters"
                     android:textColor="@color/black"
+                    android:textAllCaps="true"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_company_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -70,9 +72,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_6sdp"
                     android:enabled="true"
+                    android:hardwareAccelerated="true"
                     android:maxLength="20"
-                    android:hint="abc"
-                    android:inputType="text"
+                    android:digits="QWERTYUIOPASDFGHJKLZXCVBNM"
+                    android:hint="ABC"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
@@ -99,7 +104,8 @@
                     android:enabled="true"
                     android:maxLength="10"
                     android:hint="BHDOJ9865Q"
-                    android:inputType="text"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
@@ -143,13 +149,71 @@
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_toEndOf="@+id/ll_name"
                 android:enabled="true"
-                android:hint="Suryoday"
-                android:inputType="text"
+                android:hint="SURYODAY"
+                android:digits="QWERTYUIOPASDFGHJKLZXCVBNM"
+                android:inputType="textCapCharacters"
                 android:maxLength="20"
                 android:textColor="@color/black"
+                android:textAllCaps="true"
                 android:textSize="@dimen/_10sdp" />
 
     </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:background="@drawable/view_border_bg"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Present Occupation : "
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/_14sdp" />
+                <Spinner
+                    android:id="@+id/sp_present_occupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/spinner_background"
+                    android:dropDownWidth="fill_parent" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/gray" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_other_occupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:background="@drawable/view_border_bg"
+                android:visibility="gone"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Occupation : "
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/_14sdp" />
+
+                <EditText
+                    android:id="@+id/et_occupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:enabled="true"
+                    android:maxLength="10"
+                    android:hint="Real Estate Consultant-Residential"
+                    android:inputType="textCapCharacters"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -173,7 +237,7 @@
                     android:layout_marginTop="@dimen/_6sdp"
                     android:enabled="true"
                     android:maxLength="10"
-                    android:hint="+9821323132"
+                    android:hint="9821323132"
                     android:inputType="number"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"/>
@@ -200,7 +264,7 @@
                     android:layout_marginTop="@dimen/_6sdp"
                     android:enabled="true"
                     android:maxLength="10"
-                    android:hint="+9808237839"
+                    android:hint="9808237839"
                     android:inputType="number"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp" />
@@ -227,45 +291,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_6sdp"
                     android:enabled="true"
-                    android:maxLength="20"
+                    android:maxLength="40"
                     android:hint="abc@gmail.com"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_gst_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/view_border_bg"
                 android:orientation="vertical"
-                android:padding="@dimen/_10sdp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Aadhar Card Number* : "
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/_14sdp" />
-
-                <EditText
-                    android:id="@+id/et_aadhar_card_no"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:enabled="true"
-                    android:maxLength="12"
-                    android:hint="1234 2345 3545"
-                    android:inputType="number"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/view_border_bg"
-                android:orientation="vertical"
+                android:visibility="gone"
                 android:padding="@dimen/_10sdp">
 
                 <TextView
@@ -287,6 +326,103 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_pan_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:background="@drawable/view_border_bg"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_aadhar_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Aadhar Card Number* : "
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/_14sdp" />
+
+                <EditText
+                    android:id="@+id/et_aadhar_card_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_aadhar_text"
+                    android:hint="797978687878"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+                <Button
+                    android:id="@+id/btn_verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Verify"
+                    android:textColor="@color/white"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_12sdp"/>
+            </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/view_border_bg"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Mobile no link with aadhar no "
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/_14sdp" />
+            <RadioGroup
+                android:id="@+id/rg_aadhar_mobile_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rb_aadhar_mobile_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:paddingStart="@dimen/_10sdp"/>
+                <RadioButton
+                    android:id="@+id/rb_aadhar_mobile_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_10sdp"/>
+            </RadioGroup>
+        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_aadhar_mobile_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/view_border_bg"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number : "
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/_14sdp" />
+
+                <EditText
+                    android:id="@+id/et_aadhar_mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:enabled="true"
+                    android:maxLength="10"
+                    android:hint="9821323132"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"/>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -317,139 +453,7 @@
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/view_border_bg"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="MSME Certificate : "
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/_14sdp" />
-
-               <RadioGroup
-                   android:id="@+id/rg_msme"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="horizontal">
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Yes"
-                       android:textSize="@dimen/_10sdp" />
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_marginStart="@dimen/_20sdp"
-                       android:text="No"
-                       android:textSize="@dimen/_10sdp"/>
-               </RadioGroup>
-
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_msme_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/view_border_bg"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="MSME Registered Number : "
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/_14sdp" />
-
-                <EditText
-                    android:id="@+id/et_msme_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:enabled="true"
-                    android:maxLength="6"
-                    android:hint="2422"
-                    android:editable="false"
-                    android:clickable="false"
-                    android:inputType="number"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/view_border_bg"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Do you know your BSM Id or Counselor Id  : "
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/_14sdp" />
-
-                <RadioGroup
-                    android:id="@+id/rg_bsm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Yes"
-                        android:textSize="@dimen/_10sdp" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:text="No"
-                        android:textSize="@dimen/_10sdp"/>
-                </RadioGroup>
-
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_bsm_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/view_border_bg"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Counselor Code or BSM Id : "
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/_14sdp" />
-
-                <EditText
-                    android:id="@+id/et_bsm_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:enabled="true"
-                    android:maxLength="6"
-                    android:inputType="number"
-                    android:hint="2422"
-                    android:editable="false"
-                    android:clickable="false"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp" />
-
-            </LinearLayout>
             <include
                 android:id="@+id/btn_submit"
                 layout="@layout/button_layout"/>

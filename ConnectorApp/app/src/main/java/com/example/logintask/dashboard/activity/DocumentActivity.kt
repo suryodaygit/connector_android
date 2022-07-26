@@ -8,17 +8,12 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.example.healthqrapp.lib.utils.Constant
@@ -27,7 +22,7 @@ import com.example.logintask.R
 import com.example.logintask.dashboard.DashboardActivity
 import com.example.logintask.databinding.ActivityDocumentBinding
 import com.example.logintask.lib.base.BaseActivity
-import com.example.logintask.lib.utils.getPreferenceData
+import com.example.logintask.lib.utils.*
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import id.zelory.compressor.Compressor
@@ -37,20 +32,12 @@ import id.zelory.compressor.constraint.resolution
 import id.zelory.compressor.constraint.size
 import kotlinx.coroutines.launch
 import java.io.File
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class DocumentActivity: BaseActivity() {
     private lateinit var binding :  ActivityDocumentBinding
-    private val CAMERA_REQUEST: Int = 1888
-    private val PICK_GALLERY_IMAGES_CODE = 0
-    private val MY_CAMERA_PERMISSION_CODE = 100
     private var compressedImage: File? = null
-    private var cameraFilePath: String? = null
-    private var cameraOutURI: Uri? = null
     private val PIC_CROP = 2
-
 
     override fun getLayout()= R.layout.activity_document
 
@@ -73,6 +60,14 @@ class DocumentActivity: BaseActivity() {
             finish()
         }
 
+        val imageUrl = getPreferenceData(this, Constant.PROFILE_IMAGE,"").toUri()
+        binding.ivDocument.setImageURI(imageUrl)
+        setDataInPreference(
+            this@DocumentActivity,
+            Constant.CUSTOMER_PHOTO,
+          imageUrl.toString()
+        )
+
         val selectedEntity  = getPreferenceData(this,Constant.SELECTED_ENTITY,"")
 
         when(selectedEntity) {
@@ -90,92 +85,103 @@ class DocumentActivity: BaseActivity() {
         }
         binding.ivUploadCustomerPhoto.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "customer photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivCancelledChequePhoto.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "cancel cheque photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivCustomerPhoto.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "self customer photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivAddressProofPhoto.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "self address photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadIdentityProof.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "self identity photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
+
+        binding.ivUploadAadharFront.setOnClickListener {
+            Constant.UPLOAD_DOCUMENT = "self aadhar front photo"
+            chooseImageOption(this)
+        }
+
+        binding.ivUploadAadharBack.setOnClickListener {
+            Constant.UPLOAD_DOCUMENT = "self aadhar back photo"
+            chooseImageOption(this)
+        }
+
 
         binding.ivProprietorshipDocument.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "proprietorship declaration photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadGstinNo.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "proprietorship gstno photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadAddressProof.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "proprietorship address photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPartnershipGstinNo.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "partnership gstno photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPartnershipPan.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "partnership pan photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPartnershipAddressProof.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "partnership address photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPartnershipSignature.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "partnership signature photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPartnershipDeed.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "partnership deed photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPrivateGstinNo.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "private gstno photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPrivatePan.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "private pan no photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPrivateAddressProof.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "private address photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadIncorporationCertificate.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "private incorporation certificate photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
 
         binding.ivUploadPrivateSignature.setOnClickListener {
             Constant.UPLOAD_DOCUMENT = "private signature photo"
-            chooseImageOption()
+            chooseImageOption(this)
         }
     }
 
@@ -183,78 +189,6 @@ class DocumentActivity: BaseActivity() {
     }
 
     override fun setViewModel() {
-    }
-
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun chooseImageOption(){
-
-        val builder = AlertDialog.Builder(this)
-        val view = LayoutInflater.from(this).inflate(
-            R.layout.custom_choose_option_alert_dialog,null)
-        builder.setView(view)
-        val iv_gallery = view.findViewById<ImageView>(R.id.iv_gallery)
-        val iv_camera = view.findViewById<ImageView>(R.id.iv_camera)
-
-        val alertDialog = builder.create()
-        alertDialog.show()
-
-        iv_gallery.setOnClickListener {
-            openGallery()
-            alertDialog.dismiss()
-        }
-
-        iv_camera.setOnClickListener {
-            openCameraApp()
-            alertDialog.dismiss()
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun openCameraApp() {
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA), MY_CAMERA_PERMISSION_CODE)
-        } else {
-
-            // This is not the right way to do this, but for some reason, having
-            // it store it in
-            // MediaStore.Images.Media.EXTERNAL_CONTENT_URI isn't working right.
-            val date = Date()
-            val df = SimpleDateFormat("-mm-ss")
-
-            val newPicFile = "/qr" + df.format(date) + ".jpg"
-            val outPath = Environment.getExternalStorageDirectory().toString() + newPicFile
-            val outFile = File(outPath)
-
-            cameraFilePath = outFile.toString()
-            cameraOutURI = FileProvider.getUriForFile(
-                this, BuildConfig.APPLICATION_ID.toString() +
-                        ".provider", outFile
-            )
-            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, cameraOutURI)
-            startActivityForResult(cameraIntent, CAMERA_REQUEST)
-        }
-    }
-
-    private fun openGallery() {
-
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            val pickPhoto = Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            )
-            startActivityForResult(pickPhoto,PICK_GALLERY_IMAGES_CODE)
-        } else {
-            // Request permission from the user
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0
-            )
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -295,15 +229,8 @@ class DocumentActivity: BaseActivity() {
                     "Image Size before crop = " + file_size
                 )
             }else if (requestCode == CAMERA_REQUEST){
-                if (cameraFilePath != null && cameraOutURI != null) {
-                    val file = File(cameraFilePath)
-                    val file1 = File(cameraOutURI!!.path)
-                    val file1_size: Int = java.lang.String.valueOf(file.length()/1024).toInt()
-                    Log.i("Tag",
-                        "Image Size before crop = " + file1_size
-                    )
-                    performCropLib(cameraOutURI!!)
-                }
+                val imageFile = File(Constant.mCurrentPhotoPath!!)
+                performCropLib(imageFile.toUri())
 
             } else if (requestCode == PIC_CROP && data != null) {
                 Log.e("CROP", data.extras.toString())
@@ -329,57 +256,156 @@ class DocumentActivity: BaseActivity() {
                         when(Constant.UPLOAD_DOCUMENT) {
                             "customer photo" -> {
                                 binding.ivDocument.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.CUSTOMER_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "cancel cheque photo" ->{
                                 binding.ivCancelledCheque.setImageURI(resultUri)
-                            }
-                            "self customer photo" ->{
-                                binding.ivSelfCustomerPhoto.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.CANCELLED_CHEQUE,
+                                    resultUri.toString()
+                                )
                             }
                             "self address photo" ->{
                                 binding.ivAddressProof.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.CUSTOMER_ADDRESS_PROOF,
+                                    resultUri.toString()
+                                )
                             }
                             "self identity photo" ->{
                                 binding.ivIdentityProof.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.IDENTITY_PROOF,
+                                    resultUri.toString()
+                                )
+                            }
+                            "self aadhar front photo" ->{
+                                binding.ivAadharFront.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.SELF_AADHAR_FRONT,
+                                    resultUri.toString()
+                                )
+                            }
+
+                            "self aadhar back photo" ->{
+                                binding.ivAadharBack.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.SELF_AADHAR_BACK,
+                                    resultUri.toString()
+                                )
                             }
                             "proprietorship declaration photo" ->{
                                 binding.ivProprietorshipDeclaration.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PROPRIENTORSHIP_DECLARATION_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "proprietorship gstno photo" ->{
                                 binding.ivGstinNo.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PROPRIENTORSHIP_GSTNO_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "proprietorship address photo" ->{
                                 binding.ivProprientorAddressProof.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PROPRIENTORSHIP_ADDRESS_PROOF,
+                                    resultUri.toString()
+                                )
                             }
                             "partnership gstno photo" ->{
                                 binding.ivPartnershipGstinNo.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PARTNERSHIP_GSTNO_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "partnership pan photo" ->{
                                 binding.ivPartnershipPanNo.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PARTNERSHIP_PAN_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "partnership address photo" ->{
                                 binding.ivPartnershipAddressProof.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PARTNERSHIP_ADDRESS_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "partnership signature photo"->{
                                 binding.ivSignature.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PARTNERSHIP_SIGNATURE_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "partnership deed photo" ->{
                                 binding.ivPartnershipDeed.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PARTNERSHIP_DEED_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "private gstno photo" ->{
                                 binding.ivPrivateGstinNo.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PRIVATE_GST_NO_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "private pan no photo" ->{
                                 binding.ivPrivatePanNo.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PRIVATE_PAN_NO_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "private address photo" ->{
                                 binding.ivPrivateAddressProof.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PRIVATE_ADDRESS_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "private incorporation certificate photo"->{
                                 binding.ivCertificateIncorparation.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PRIVATE_INCORPORATION_CERTIFICATE_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
                             "private signature photo" ->{
                                 binding.ivPrivateSignature.setImageURI(resultUri)
+                                setDataInPreference(
+                                    this@DocumentActivity,
+                                    Constant.PRIVATE_SIGNATURE_PHOTO,
+                                    resultUri.toString()
+                                )
                             }
 
                         }
@@ -439,7 +465,7 @@ class DocumentActivity: BaseActivity() {
 
             PICK_GALLERY_IMAGES_CODE ->{
                 if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    openGallery()
+                    openGallery(this)
                 }
             }
 
